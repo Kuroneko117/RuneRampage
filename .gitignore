@@ -1,0 +1,6 @@
+source/library/
+source/temp/
+source/build/
+source/node_modules/
+source/.creator/
+source/project.private.config.json

@@ -1,0 +1,103 @@
+{
+  "baseline": "562e000a08186aa9135ab7f297913180e4572c5d",
+  "parity": [
+    {
+      "seed": 3,
+      "mode": "campaign",
+      "phase": "dead",
+      "wave": 5,
+      "seconds": 160.45,
+      "equal": true
+    },
+    {
+      "seed": 3,
+      "mode": "endless",
+      "phase": "dead",
+      "wave": 5,
+      "seconds": 160.45,
+      "equal": true
+    },
+    {
+      "seed": 17,
+      "mode": "campaign",
+      "phase": "dead",
+      "wave": 5,
+      "seconds": 156.56666666666666,
+      "equal": true
+    },
+    {
+      "seed": 17,
+      "mode": "endless",
+      "phase": "dead",
+      "wave": 5,
+      "seconds": 156.56666666666666,
+      "equal": true
+    },
+    {
+      "seed": 71,
+      "mode": "campaign",
+      "phase": "battle",
+      "wave": 10,
+      "seconds": 240,
+      "equal": true
+    },
+    {
+      "seed": 71,
+      "mode": "endless",
+      "phase": "battle",
+      "wave": 10,
+      "seconds": 240,
+      "equal": true
+    }
+  ],
+  "campaignFlow": {
+    "phase": "victory",
+    "wave": 20,
+    "hp": 5,
+    "kills": 5735,
+    "gold": 2115,
+    "bossClears": 4,
+    "max": {
+      "enemies": 57,
+      "bolts": 80,
+      "coins": 59,
+      "hostiles": 7
+    },
+    "allocations": {
+      "enemies": 57,
+      "bolts": 80,
+      "coins": 59,
+      "explosions": 16,
+      "events": 43,
+      "hostiles": 7
+    },
+    "ticks": 31370,
+    "ms": 8139.118600000002
+  },
+  "stress": {
+    "phase": "battle",
+    "wave": 49,
+    "hp": 5,
+    "kills": 35495,
+    "gold": 16760,
+    "bossClears": 7,
+    "max": {
+      "enemies": 96,
+      "bolts": 80,
+      "coins": 64,
+      "hostiles": 8
+    },
+    "allocations": {
+      "enemies": 96,
+      "bolts": 80,
+      "coins": 64,
+      "explosions": 16,
+      "events": 64,
+      "hostiles": 8
+    },
+    "ticks": 54000,
+    "ms": 63657.788700000005,
+    "meanModelMsPerTick": 1.178847938888889
+  },
+  "note": "确定随机种子逐秒比对旧模型，战斗/经济无数值改动。campaignFlow 从第1波开始正常掉落/购买、仅强制无敌以检查20波/四Boss终局；stress 为满装备+无敌外部夹具，验证跨20波与无限循环及池上限，非自然通关/胜率/手机帧率。"
+}

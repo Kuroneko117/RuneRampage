@@ -1,0 +1,17 @@
+const fs=require('fs'),path=require('path'),vm=require('vm'),cp=require('child_process'),assert=require('assert'),{performance}=require('perf_hooks');const ts=require('D:/WeChatGameDev/Tools/CocosCreator/3.8.8/resources/app.asar.unpacked/node_modules/typescript');
+const root=path.resolve(__dirname,'../..');
+function api(baseline){const cache={};function load(n){if(cache[n])return cache[n];const exports=cache[n]={},source=baseline?cp.execFileSync('git',['show','562e000a08186aa9135ab7f297913180e4572c5d:assets/scripts/'+n+'.ts'],{cwd:root,encoding:'utf8'}):fs.readFileSync(path.join(root,'assets/scripts/'+n+'.ts'),'utf8');const code=ts.transpileModule(source,{compilerOptions:{module:1,target:7}}).outputText;vm.runInNewContext(code,{exports,require:p=>load(p.slice(2)),Math,Map,Set,Array,Number,console});return exports;}return {...load('ArenaModel'),...load('Equipment')};}
+function rng(seed){return()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296)}
+const old=api(true),current=api(false),checks=[];
+function run(a,seed,mode,seconds,immortal=false,full=false){const m=new a.ArenaModel(rng(seed));m.endlessUnlocked=true;m.reset(mode);if(full){for(const id of Object.keys(m.levels))m.levels[id]=5;m.wave=15;m.refreshStats();}const samples=[],max={enemies:0,bolts:0,coins:0,hostiles:0};let ticks=0,bossEntries=0;const t=performance.now();for(;ticks<seconds*60&&!m.finished;ticks++){
+ if(m.phase==='shop'){for(let i=0;i<4;i++)m.buyOffer(i);if(m.blessingAvailable)m.bless();if(m.gold>=m.reinforcementPrice)m.reinforce();m.nextWave();}
+ if(immortal)m.invulnerable=999;const theta=ticks/60*.7;if(m.overloadReady)m.activateOverload();m.step(1/60,Math.cos(theta),Math.sin(theta));m.consumeEvents(e=>{if(e.type==='bossStart')bossEntries++;});
+ for(const k of Object.keys(max))max[k]=Math.max(max[k],m[k].length);
+ if(ticks%60===0)samples.push([m.phase,m.wave,m.hp,m.x,m.y,m.kills,m.gold,m.energy,m.overload,m.bossClears,m.enemies.length,m.bolts.length,m.hostiles.length]);
+ }return {samples,phase:m.phase,wave:m.wave,hp:m.hp,kills:m.kills,gold:m.gold,bossClears:m.bossClears,bossEntries,max,allocations:m.allocations,ticks,ms:performance.now()-t};}
+// Exact parity until the first deliberately changed Boss deadline (wave 5 ends at 125 seconds).
+for(const seed of [3,17,71])for(const mode of ['campaign','endless']){const before=run(old,seed,mode,124),after=run(current,seed,mode,124);assert.deepEqual(after.samples,before.samples);checks.push({seed,mode,phase:after.phase,wave:after.wave,seconds:after.ticks/60,equal:true});}
+const stress=run(current,71,'endless',900,true,true);assert(stress.max.enemies<=96&&stress.max.bolts<=80&&stress.max.coins<=64&&stress.max.hostiles<=28);assert(stress.wave>20);assert(stress.bossEntries>=7);assert(stress.bossClears<=stress.bossEntries);
+const campaign=run(current,71,'campaign',1200,true,false);assert.equal(campaign.phase,'victory');assert.equal(campaign.wave,20);assert(campaign.bossClears>=0&&campaign.bossClears<=4);assert.equal(campaign.ticks,30000);
+const result={baseline:'562e000a08186aa9135ab7f297913180e4572c5d',parity:checks,campaignFlow:{...campaign,samples:undefined},stress:{...stress,samples:undefined,meanModelMsPerTick:stress.ms/stress.ticks},note:'首个Boss截止前124秒确定随机种子逐秒比对旧模型；125秒以后按用户要求改为计时结束，不能再与旧版无限延时结果全程等同。campaignFlow 正常掉落/购买、强制无敌以检查20波500秒生存通关；stress 为满装备+无敌外部夹具，非自然通关/胜率/手机帧率。'};
+fs.writeFileSync(path.join(process.env.RUNE_TEST_OUTPUT||__dirname,'gameplay-results.json'),JSON.stringify(result,null,2));console.log(result);

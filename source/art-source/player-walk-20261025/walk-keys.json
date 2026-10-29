@@ -1,0 +1,253 @@
+{
+  "fps": 16,
+  "size": [
+    80,
+    88
+  ],
+  "pivot": [
+    0.5,
+    0.125
+  ],
+  "keys": [
+    {
+      "frame": 1,
+      "feet": [
+        {
+          "x": 31,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        },
+        {
+          "x": 40,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        }
+      ],
+      "hemSway": -1.25
+    },
+    {
+      "frame": 2,
+      "feet": [
+        {
+          "x": 31,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        },
+        {
+          "x": 40,
+          "sole": 75,
+          "width": 9,
+          "height": 11,
+          "angle": -9
+        }
+      ],
+      "hemSway": 0.0
+    },
+    {
+      "frame": 3,
+      "feet": [
+        {
+          "x": 30,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        },
+        {
+          "x": 41,
+          "sole": 73,
+          "width": 8,
+          "height": 9,
+          "angle": -9
+        }
+      ],
+      "hemSway": 1.25
+    },
+    {
+      "frame": 4,
+      "feet": [
+        {
+          "x": 28,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        },
+        {
+          "x": 43,
+          "sole": 72,
+          "width": 8,
+          "height": 9,
+          "angle": 0
+        }
+      ],
+      "hemSway": 2.165
+    },
+    {
+      "frame": 5,
+      "feet": [
+        {
+          "x": 27,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        },
+        {
+          "x": 44,
+          "sole": 73,
+          "width": 8,
+          "height": 9,
+          "angle": 9
+        }
+      ],
+      "hemSway": 2.5
+    },
+    {
+      "frame": 6,
+      "feet": [
+        {
+          "x": 25,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        },
+        {
+          "x": 46,
+          "sole": 75,
+          "width": 9,
+          "height": 11,
+          "angle": 9
+        }
+      ],
+      "hemSway": 2.165
+    },
+    {
+      "frame": 7,
+      "feet": [
+        {
+          "x": 25,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        },
+        {
+          "x": 46,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        }
+      ],
+      "hemSway": 1.25
+    },
+    {
+      "frame": 8,
+      "feet": [
+        {
+          "x": 25,
+          "sole": 75,
+          "width": 9,
+          "height": 11,
+          "angle": -9
+        },
+        {
+          "x": 46,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        }
+      ],
+      "hemSway": 0.0
+    },
+    {
+      "frame": 9,
+      "feet": [
+        {
+          "x": 26,
+          "sole": 73,
+          "width": 8,
+          "height": 9,
+          "angle": -9
+        },
+        {
+          "x": 45,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        }
+      ],
+      "hemSway": -1.25
+    },
+    {
+      "frame": 10,
+      "feet": [
+        {
+          "x": 28,
+          "sole": 72,
+          "width": 8,
+          "height": 9,
+          "angle": 0
+        },
+        {
+          "x": 43,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        }
+      ],
+      "hemSway": -2.165
+    },
+    {
+      "frame": 11,
+      "feet": [
+        {
+          "x": 30,
+          "sole": 73,
+          "width": 8,
+          "height": 9,
+          "angle": 9
+        },
+        {
+          "x": 41,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        }
+      ],
+      "hemSway": -2.5
+    },
+    {
+      "frame": 12,
+      "feet": [
+        {
+          "x": 31,
+          "sole": 75,
+          "width": 8,
+          "height": 10,
+          "angle": 9
+        },
+        {
+          "x": 40,
+          "sole": 78,
+          "width": 9,
+          "height": 12,
+          "angle": 0
+        }
+      ],
+      "hemSway": -2.165
+    }
+  ]
+}

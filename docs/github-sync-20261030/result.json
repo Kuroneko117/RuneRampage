@@ -1,0 +1,9 @@
+{
+  "engine": "Cocos Creator 3.8.8",
+  "details": {
+    "hasTouch": true,
+    "inCombat": true
+  },
+  "errors": [],
+  "scope": "Fresh release Web build boots and enters combat; isolated browser storage; no WeChat/device claim"
+}
